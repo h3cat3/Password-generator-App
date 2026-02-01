@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  
+  <title>Frontend Mentor | Password generator app</title>
+</head>
+<body>
+  <main class="card">
+    <h1 class="card__text--center">Password Generator</h1>
+    <section class="card__box card__display--row"> 
+      <output class="card__text--2">P4$5W0rD!</output>
+      <div class="card__display-row">
+        <span class="card__text--3 card__text--green card__text--hiden" >Copied </span> <img src="assets/images/icon-copy.svg" alt="copy">
+      </div>
+    </section>
+    <form class="card__box">
+      <fieldset>
+        <div class="card__display--row">
+          <label for="length">Character Length</label>
+          <span id="lenght-value" class="card__text--2 card__text--green">10</span>
+        </div>
+        <input type="range" min="0" max="20" id="length"  class="card__slider">
+
+      </fieldset>
+      <fieldset class="card__display--col">
+        <label for="uppercase" class="card__text--3">
+          <img src="assets/images/icon-check.svg">
+          <input type="checkbox" id="uppercase">
+          Include Uppercase Letters</label>
+        </div>
+        <dix>
+          <input type="checkbox" id="lowercase">
+          <label for="lowercase" class="card__text--3">Include Lowercase Letters</label>
+        </dix>
+        <dix>
+          <input type="checkbox" id="numbers">
+          <label for="numbers" class="card__text--3">Include Numbers</label>
+        </dix>
+        <dix>
+          <input type="checkbox" id="symbols">
+          <label for="symbols" class="card__text--3">Include Symbols</label>
+        </dix>
+         </fieldset>
+      <fieldset>
+        <label for="strenght" class="card__text--3">Strength</label>
+        <output id="strength">
+          <span id="strenght-text">weak medium strong very-strong</span>
+          <div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+        </output>
+      </fieldset>
+      
+      <button type="button" >Generate</button>
+    </form>
+  </main>
+  
+</body>
+</html>
