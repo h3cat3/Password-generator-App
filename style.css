@@ -114,10 +114,6 @@ input, button {
 .card__slider:hover{
     opacity: 1;
 }
-.card__slider::-webkit-slider-progres{
-    background-color: var(--green-200);
-    height: var(--spacing-100);
-}
 .card__slider::-webkit-slider-thumb{
     -webkit-appearance: none;
     appearance: none;
@@ -126,7 +122,6 @@ input, button {
     height: 28px;
     border-radius: 50%;
 }
-
 .card__slider::-moz-range-thumb{
     background-color: var(--grey-200);
     width: 28px;
