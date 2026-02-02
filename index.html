@@ -13,7 +13,7 @@
   <main class="card">
     <h1 class="card__text--center">Password Generator</h1>
     <section class="card__box card__display--row"> 
-      <output class="card__text--2">P4$5W0rD!</output>
+      <output class="card__text--1">P4$5W0rD!</output>
       <div class="card__display-row">
         <span class="card__text--3 card__text--green card__text--hiden" >Copied </span> <img src="assets/images/icon-copy.svg" alt="copy">
       </div>
@@ -22,7 +22,7 @@
       <fieldset>
         <div class="card__display--row">
           <label for="length">Character Length</label>
-          <span id="length-value" class="card__text--2 card__text--green">10</span>
+          <span id="length-value" class="card__text--2 card__text--green card__text--upper">10</span>
         </div>
         <input type="range" min="0" max="20" id="length"  class="card__slider">
 
@@ -54,10 +54,10 @@
           Include Symbols</label>
       
          </fieldset>
-      <fieldset>
-        <label for="strenght" class="card__text--3">Strength</label>
-        <output id="strength">
-          <span id="strenght-text">weak medium strong very-strong</span>
+      <fieldset class="card__box--dark card__display--row">
+        <label for="strenght" class="card__text--3 card__text--grey600 card__text--upper">Strength</label>
+        <output id="strength" class="card__display--row">
+          <span id="strenght-text" class="card__text--2 card__text--upper"></span>
           <div>
             <div class="bar"></div>
             <div class="bar"></div>
@@ -67,7 +67,9 @@
         </output>
       </fieldset>
       
-      <button type="button" >Generate</button>
+      <button type="button" id="generate" class="card__text--3 card__text--upper card__btn">Generate
+        <img src="assets/images/icon-arrow-right.svg" alt="">
+      </button>
     </form>
   </main>
   <script defer src="main.js"></script>

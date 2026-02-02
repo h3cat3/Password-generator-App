@@ -40,7 +40,7 @@
 .card__text--2{
     font-size: 1.5rem;
     line-height: 2rem;
-    font-weight: 700;
+    font-weight: 400;
 }
 .card__text--3{
     font-size: 1.125rem;
@@ -87,6 +87,10 @@ input, button {
     padding: var(--spacing-200);
     display: grid;
     gap: var(--spacing-300);
+}
+.card__box--dark{
+    padding: var(--spacing-200) var(--spacing-300);
+    background-color: var(--grey-850);
 }
 .card__display--row{
     display: flex;
@@ -138,12 +142,28 @@ input, button {
 }
 .card__text--green{
     color:var(--green-200);
+    
+}
+.card__text--grey600{
+    color:var(--grey-600);
+    
+}
+.card__text--upper{
     text-transform: uppercase;
 }
 .card__text--hiden{
     display: none;
 }
-
+.card__btn{
+    background-color: var(--green-200);
+    color: var(--grey-800);
+    padding: var(--spacing-200);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-200);
+   
+}
 
 .sqare{
     cursor: pointer;
@@ -154,11 +174,23 @@ input, button {
     margin-bottom: -3px;
 }
 .checked{
-   
+   cursor: pointer;
    width: 20px; height: 20px;
    margin-bottom: -3px;
     background-color: var(--green-200);
     border: 3px solid var(--green-200);
+}
+.bar{
+    display: inline-block;
+    width: 10px; height: 28px;
+    border: 3px solid var(--grey-200);
+}
+.bar-full{
+    display: inline-block;
+    width: 10px; height: 28px;
+    border: 3px solid var(--yellow-300);
+    background-color: var(--yellow-300)
+    ;
 }
 .hidden{
     display: none;
