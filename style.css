@@ -89,7 +89,7 @@ input, button {
     gap: var(--spacing-300);
 }
 .card__box--dark{
-    padding: var(--spacing-200) var(--spacing-300);
+    padding: var(--spacing-200) clamp(var(--spacing-100),2vw,var(--spacing-300));
     background-color: var(--grey-850);
 }
 .card__display--row{
@@ -117,6 +117,7 @@ input, button {
 }
 .card__slider:hover{
     opacity: 1;
+   
 }
 .card__slider::-webkit-slider-thumb{
     -webkit-appearance: none;
@@ -126,11 +127,19 @@ input, button {
     height: 28px;
     border-radius: 50%;
 }
+.card__slider::-webkit-slider-thumb:hover{
+    background-color: var(--grey-850);
+    border: 2px solid var(--green-200);
+}
 .card__slider::-moz-range-thumb{
     background-color: var(--grey-200);
     width: 28px;
     height: 28px;
     border-radius: 50%;
+}
+.card__slider::-moz-range-thumb:hover{
+    background-color: var(--grey-850);
+    border: 2px solid var(--green-200);
 }
 .card__slider::-moz-range-progress{
     background-color: var(--green-200);
@@ -154,15 +163,37 @@ input, button {
 
 .card__btn{
     background-color: var(--green-200);
+    border: 3px solid var(--green-200);
     color: var(--grey-800);
     padding: var(--spacing-200);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: var(--spacing-200);
-   
 }
 
+.card__btn:hover{
+    background-color: var(--grey-800);
+    color: var(--green-200);
+    
+}
+.card__btn:hover svg{
+ stroke: var(--green-200);
+}
+.card__btn:active svg {
+    transform: translateX(5px);
+}
+.card__copy-img{
+    cursor: pointer;
+    fill: var(--green-200);
+    margin-bottom: -5px;
+}
+.card__copy-img:hover{
+fill: var(--grey-200);
+}
+.card__copy-img:active{
+    transform: scale(0.9);
+}
 .sqare{
     cursor: pointer;
     border: 3px solid var(--grey-200);
@@ -170,6 +201,9 @@ input, button {
     height: 20px;
     display: inline-block;
     margin-bottom: -3px;
+}
+.sqare:hover{
+    border-color: var(--green-200);
 }
 .checked{
    cursor: pointer;
@@ -192,4 +226,7 @@ input, button {
 }
 .hidden{
     display: none;
+}
+@media (max-width: 400px) {
+    
 }

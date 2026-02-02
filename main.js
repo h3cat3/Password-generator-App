@@ -70,7 +70,7 @@ function generatePassword(){
     if (checked[0]) {characters += upper};
     if (checked[1]) {characters += lower};
     if (checked[2]) {characters += numbers};
-    if (checked[4]) {characters += symbols};
+    if (checked[3]) {characters += symbols};
 
     if (characters.length === 0 || lengthInput.value === 0) {
         return "password";
