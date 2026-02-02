@@ -160,7 +160,10 @@ input, button {
 .card__text--upper{
     text-transform: uppercase;
 }
-
+.card__input{
+    position: absolute;
+    opacity: 0;
+}
 .card__btn{
     background-color: var(--green-200);
     border: 3px solid var(--green-200);
