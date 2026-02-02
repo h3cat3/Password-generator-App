@@ -151,9 +151,7 @@ input, button {
 .card__text--upper{
     text-transform: uppercase;
 }
-.card__text--hiden{
-    display: none;
-}
+
 .card__btn{
     background-color: var(--green-200);
     color: var(--grey-800);

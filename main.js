@@ -15,12 +15,9 @@ let checked = [false,false,false,false];
 
 const generateBtn = document.getElementById('generate');
 const password = document.getElementById('password');
+const copiedText = document.getElementById('copied-text');
+const copiedImg = document.getElementById('copied-img');
 
-
-lengthInput.addEventListener('input', () => {
-    lengthNo.innerText = lengthInput.value;
-    updateSlider();
-})
 
 function updateSlider() { 
   const value = (lengthInput.value - lengthInput.min) / (lengthInput.max - lengthInput.min) * 100;
@@ -30,30 +27,6 @@ function updateSlider() {
   lengthInput.style.backgroundColor = 'var(--grey-850)';
 }
 
-uppercaseCheck.addEventListener('click',() => {
-    checkBox[0].classList.toggle('hidden');
-    checkImg[0].classList.toggle('hidden');
-    checked[0] = !checked[0];
-    updateStrenght();
-});
-lowercaseCheck.addEventListener('click',() => {
-    checkBox[1].classList.toggle('hidden');
-    checkImg[1].classList.toggle('hidden');
-    checked[1] = !checked[1];
-    updateStrenght();
-});
-numbersCheck.addEventListener('click',() => {
-    checkBox[2].classList.toggle('hidden');
-    checkImg[2].classList.toggle('hidden');
-    checked[2] = !checked[2];
-    updateStrenght();
-});
-symbolsCheck.addEventListener('click',() => {
-    checkBox[3].classList.toggle('hidden');
-    checkImg[3].classList.toggle('hidden');
-    checked[3] = !checked[3];
-    updateStrenght();
-});
 
 function updateStrenght() { 
     let strenght = 0;
@@ -112,11 +85,44 @@ function generatePassword(){
     return pass;
 }
 
-generateBtn.addEventListener('click', ()=>{
-    
-    password.innerText = generatePassword();
-
-
-
-})
 updateSlider();
+
+lengthInput.addEventListener('input', () => {
+    lengthNo.innerText = lengthInput.value;
+    updateSlider();
+})
+
+uppercaseCheck.addEventListener('click',() => {
+    checkBox[0].classList.toggle('hidden');
+    checkImg[0].classList.toggle('hidden');
+    checked[0] = !checked[0];
+    updateStrenght();
+});
+lowercaseCheck.addEventListener('click',() => {
+    checkBox[1].classList.toggle('hidden');
+    checkImg[1].classList.toggle('hidden');
+    checked[1] = !checked[1];
+    updateStrenght();
+});
+numbersCheck.addEventListener('click',() => {
+    checkBox[2].classList.toggle('hidden');
+    checkImg[2].classList.toggle('hidden');
+    checked[2] = !checked[2];
+    updateStrenght();
+});
+symbolsCheck.addEventListener('click',() => {
+    checkBox[3].classList.toggle('hidden');
+    checkImg[3].classList.toggle('hidden');
+    checked[3] = !checked[3];
+    updateStrenght();
+});
+
+generateBtn.addEventListener('click', ()=>{
+    const text = generatePassword();
+    password.innerText = text;
+    copiedImg.addEventListener('click',() => {
+        copiedText.classList.remove('hidden');
+        navigator.clipboard.writeText(text);
+    })
+})
+
