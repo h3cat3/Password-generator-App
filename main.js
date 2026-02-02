@@ -1,10 +1,10 @@
 const lengthNo = document.getElementById('length-value');
 const lengthInput = document.getElementById('length');
 
-const uppercase = document.getElementById('uppercase');
-const lowercase = document.getElementById('lowercase');
-const numbers = document.getElementById('numbers');
-const symbols = document.getElementById('symbols');
+const uppercaseCheck = document.getElementById('uppercase');
+const lowercaseCheck = document.getElementById('lowercase');
+const numbersCheck = document.getElementById('numbers');
+const symbolsCheck = document.getElementById('symbols');
 
 const checkBox = document.querySelectorAll('.sqare');
 const checkImg = document.querySelectorAll('.checked');
@@ -12,6 +12,9 @@ const checkImg = document.querySelectorAll('.checked');
 const strenghtText = document.getElementById('strenght-text');
 const bar = document.querySelectorAll('.bar');
 let checked = [false,false,false,false];
+
+const generateBtn = document.getElementById('generate');
+const password = document.getElementById('password');
 
 
 lengthInput.addEventListener('input', () => {
@@ -27,25 +30,25 @@ function updateSlider() {
   lengthInput.style.backgroundColor = 'var(--grey-850)';
 }
 
-uppercase.addEventListener('click',() => {
+uppercaseCheck.addEventListener('click',() => {
     checkBox[0].classList.toggle('hidden');
     checkImg[0].classList.toggle('hidden');
     checked[0] = !checked[0];
     updateStrenght();
 });
-lowercase.addEventListener('click',() => {
+lowercaseCheck.addEventListener('click',() => {
     checkBox[1].classList.toggle('hidden');
     checkImg[1].classList.toggle('hidden');
     checked[1] = !checked[1];
     updateStrenght();
 });
-numbers.addEventListener('click',() => {
+numbersCheck.addEventListener('click',() => {
     checkBox[2].classList.toggle('hidden');
     checkImg[2].classList.toggle('hidden');
     checked[2] = !checked[2];
     updateStrenght();
 });
-symbols.addEventListener('click',() => {
+symbolsCheck.addEventListener('click',() => {
     checkBox[3].classList.toggle('hidden');
     checkImg[3].classList.toggle('hidden');
     checked[3] = !checked[3];
@@ -83,4 +86,37 @@ if (strenght === 0) {
     bar.forEach(el => {el.classList.remove('bar-full')})
 } 
 }
+function generatePassword(){
+    const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const lower = "abcdefghijklmnopqrstuvwxyz";
+    const numbers = "0123456789";
+    const symbols = "!@#$%^&*()_+-=[]{};:,.<>/?";
+    
+    let characters = "";
+
+    if (checked[0]) {characters += upper};
+    if (checked[1]) {characters += lower};
+    if (checked[2]) {characters += numbers};
+    if (checked[4]) {characters += symbols};
+
+    if (characters.length === 0 || lengthInput.value === 0) {
+        return "password";
+    }
+    let pass = "";
+    
+
+    for (let i=0; i < lengthInput.value; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        pass += characters[randomIndex];
+    }
+    return pass;
+}
+
+generateBtn.addEventListener('click', ()=>{
+    
+    password.innerText = generatePassword();
+
+
+
+})
 updateSlider();
