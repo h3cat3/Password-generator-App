@@ -1,0 +1,223 @@
+@use "./variables" as *;
+
+
+
+
+@font-face {
+    font-family: JetBrainsMono;
+    src: url(../assets/fonts/JetBrainsMono-VariableFont_wght.ttf);
+}
+
+
+@mixin text-style($size, $height, $weight){
+    font-size: $size;
+    line-height: $height;
+    font-weight: $weight;
+}
+@mixin flex-display($direction, $justify, $align, $gap){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+
+/*reset*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: inherit;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background: $gradient-1;
+    color: $grey-200;
+    @include flex-display(row,center,center,0);
+    font-family: JetBrainsMono, Courier, monospace;
+    letter-spacing: 0;
+    @include text-style(1rem, 1.25rem, 400);
+    @media (min-width: 400px) {
+        @include text-style(1.125rem, 1.5rem, 400);
+  }
+}
+
+input, button {
+    cursor: pointer;
+}
+/*typography*/
+
+.card{
+    &__text{
+        &--1{
+            @include text-style(2rem, 2.625rem, 700);
+        }
+        &--2{
+            @include text-style(1.5rem, 2rem, 700);
+            @media (min-width: 400px) {
+                @include text-style(2rem, 2.625rem, 700);
+            }
+        }
+        &--3{
+            @include text-style(1.125rem, 1.5rem, 400);
+            @media (min-width: 400px) {
+                @include text-style(1.5rem, 2rem, 700);
+            }
+        }
+        &--title{
+            @include text-style(1rem, 1.25rem, 400);
+            @media (min-width: 400px) {
+                @include text-style(1.5rem, 2rem, 700);
+            }
+        }
+        &--center{
+            text-align: center;
+        }
+        &--green{
+            color: $green-200;
+        }
+        &--grey600{
+            color: $grey-600;
+        }
+        &--upper{
+            text-transform: uppercase;
+        }
+    }
+}
+/*card layout*/
+.card{
+    @include flex-display(column,flex-start, left, $spacing-200);
+    width: 90%;
+    max-width: 33.75rem;
+    margin-inline: auto;
+    &__box{
+        background-color: $grey-800;
+        padding: $spacing-200;
+        display: grid;
+        gap: $spacing-300;
+        &--dark{
+            padding: $spacing-200 clamp($spacing-100,2vw,$spacing-300);
+            background-color: $grey-850;
+        }
+        &--row{
+            @include flex-display(row,space-between, center, $spacing-100);
+        }
+        &--col{
+             @include flex-display(column,flex-start, left, $spacing-200);
+        }
+    }
+    &__input{
+        position: absolute;
+        opacity: 0;
+    }
+    &__btn{
+        background-color: $green-200;
+        border: 3px solid $green-200;
+        color: $grey-800;
+        padding: $spacing-200;
+        @include flex-display(row,center, center, $spacing-200);
+        &:hover{
+            background-color: $grey-800;
+            color: $green-200; 
+            svg{
+                stroke: $green-200;
+            }
+        }
+        &:active svg {
+            transform: translateX(5px);
+        }
+    }
+    &__copy-img{
+        cursor: pointer;
+        fill: $green-200;
+        margin-bottom: -5px;
+        &:hover{
+            fill: $grey-200;
+        }
+        &:active{
+            transform: scale(0.9);
+        }
+    }
+    &__slider{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: $spacing-100;
+        background-color: $grey-850;
+        outline: none;
+        opacity: 0.7;
+        transition: opacity .2s;
+        margin: $spacing-200 0;
+        &:hover{
+            opacity: 1;
+        }
+        &::-webkit-slider-thumb{
+            -webkit-appearance: none;
+            appearance: none;
+            background-color: $grey-200;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+        }
+        
+        &::-webkit-slider-thumb:hover{
+            background-color: $grey-850;
+            border: 2px solid $green-200;
+        }
+        &::-moz-range-thumb{
+            background-color: $grey-200;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+        }
+        &::-moz-range-thumb:hover{
+            background-color: $grey-850;
+            border: 2px solid $green-200;
+        }
+        &::-moz-range-progress{
+            background-color: $green-200;
+            height: $spacing-100;
+        }
+    }
+    
+}
+
+
+
+/*checkboxes and bars*/
+
+.sqare{
+    cursor: pointer;
+    border: 3px solid $grey-200;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-bottom: -3px;
+    &:hover{
+        border-color: $green-200;
+    }
+}
+.checked{
+    cursor: pointer;
+    width: 20px; height: 20px;
+    margin-bottom: -3px;
+    background-color: $green-200;
+    border: 3px solid $green-200;
+}
+.bar{
+    display: inline-block;
+    width: 10px; height: 28px;
+    border: 3px solid $grey-200;
+    &--full{
+        border: 3px solid $yellow-300;
+        background-color: $yellow-300; 
+    }
+}
+.hidden{
+    display: none;
+}
+

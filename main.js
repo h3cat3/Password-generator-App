@@ -21,10 +21,9 @@ const copiedImg = document.getElementById('copied-img');
 
 function updateSlider() { 
   const value = (lengthInput.value - lengthInput.min) / (lengthInput.max - lengthInput.min) * 100;
-  lengthInput.style.backgroundImage = 'linear-gradient(var(--green-200), var(--green-200))';
+  lengthInput.style.backgroundImage = 'linear-gradient(#A4FFAF,#A4FFAF)';
   lengthInput.style.backgroundSize = value + '% 100%';
   lengthInput.style.backgroundRepeat = 'no-repeat';
-  lengthInput.style.backgroundColor = 'var(--grey-850)';
 }
 
 
@@ -35,28 +34,28 @@ function updateStrenght() {
     }
 });
 if (strenght === 4) {
-    strenghtText.innerText = 'very-strong';
-    bar[3].classList.add('bar-full');
+    strenghtText.innerText = 'strong';
+    bar[3].classList.add('bar--full');
     
 } 
  if (strenght === 3) {
-    strenghtText.innerText = 'strong';
-    bar[2].classList.add('bar-full');
-    bar[3].classList.remove('bar-full');
+    strenghtText.innerText = 'medium';
+    bar[2].classList.add('bar--full');
+    bar[3].classList.remove('bar--full');
 }
  if (strenght === 2) {
-    strenghtText.innerText = 'medium';
-    bar[1].classList.add('bar-full');
-    bar[2].classList.remove('bar-full');
+    strenghtText.innerText = 'weak';
+    bar[1].classList.add('bar--full');
+    bar[2].classList.remove('bar--full');
 } 
 if (strenght === 1) {
     strenghtText.innerText = 'weak';
-    bar[0].classList.add('bar-full');
-    bar[1].classList.remove('bar-full');
+    bar[0].classList.add('bar--full');
+    bar[1].classList.remove('bar--full');
 } 
 if (strenght === 0) {
     strenghtText.innerText = '';
-    bar.forEach(el => {el.classList.remove('bar-full')})
+    bar.forEach(el => {el.classList.remove('bar--full')})
 } 
 }
 function generatePassword(){
